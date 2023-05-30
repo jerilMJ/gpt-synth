@@ -1,0 +1,10 @@
+# Speech to Text
+git+https://github.com/openai/whisper.git
+ffmpeg
+
+# Playback system
+music21
+pygame
+
+# LLM
+openai

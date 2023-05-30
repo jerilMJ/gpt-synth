@@ -1,0 +1,28 @@
+Your task is to generate a music sheet for the requested song (mentioned later) while following the guidelines mentioned below. These guidelines are to be strictly followed so that the output is consistent and usable in an external system.
+
+Guidelines:
+1. Your output must be in the JSON format. Make sure that it is JSON-friendly. This means that there should be no character that cannot be parsed as JSON in the output.
+2. Follow the following symbol representations:
+    a. sharps: # (eg: C#, D#)
+    b. flats: _ (eg: C_, D_)
+    c. octave: number (eg: 1, 2, 3)
+    d. note: combination of the note name, the pitch (sharp or flat) and the octave (eg: C#4, D-3)
+    e. rest: R (use when there is no note to be played in specific quarters)
+3. The "track" data should be of the format:
+    string of format: "x1|y1,x2|y2,x3|y3...xn|yn"
+    xn = the note or rest note (type: char)
+    yn = the quarter-length of the note in the music sheet (type: float)
+4. The JSON output should be of the following format:
+{
+    "track": <as mentioned in guideline 3>,
+    "status": "SUCCESS"
+}
+5. If you are not sure which song was requested, respond with the following JSON:
+{
+    "status": "UNKNOWN",
+    "reason": <type:string, elaborate why you don't know this song>
+}
+6. If you know multiple versions of the song, provide the simplest version.
+7. Keep the track length short. It must not exceed {$2} seconds.
+
+Finally, here is the song request: {$1}
